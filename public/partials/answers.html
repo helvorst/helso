@@ -1,0 +1,29 @@
+<div class="col-sm-12" ng-show="question">
+
+    <p>
+        <span class="label">Question {{question.question_id}} <b>"{{question.title}}"</b> has <b>{{question.answer_count}}</b> answers</span>
+    </p>
+
+
+    <div ng-include="'partials/Spinner.html'"></div>
+
+    <div class="col-sm-12" ng-show="answers.items.length>0">
+        <table class="table table-bordered">
+            <tr>
+                <th>No</th>
+                <th>Answered by</th>
+                <th>Votes</th>
+                <th>Is accepted</th>
+            </tr>
+            <tr ng-repeat="ans in answers.items track by $index">
+                <td><span class="badge">{{$index+1}}</span></td>
+                <td>{{ans.owner.display_name}}</td>
+                <td>{{ans.score}}</td>
+                <td>{{ans.is_accepted ? 'Yes': ''}}</td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+<div class="col-sm-12" ng-include="'partials/error.html'"></div>

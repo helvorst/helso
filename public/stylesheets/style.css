@@ -1,0 +1,19 @@
+body {
+    /*padding: 50px;*/
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+    color: #00B7FF;
+}
+
+.jumbotron {
+    padding-top: 10px;
+    padding-bottom: 30px;
+}
+
+.label {
+    color: black;
+    font-weight: normal;
+    font-size: 90%;
+}

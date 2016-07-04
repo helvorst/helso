@@ -1,0 +1,26 @@
+<div class="col-sm-12" style="margin-top: 50px; display: flex">
+    <div style="width:500px; margin: auto">
+        <div class="row">
+            <p kb-list>
+                <span class="label ">What are you looking for?</span>
+                <input class="form-control input-sm " kb-focus="focusSearch" kb-item kb-invoke="doSearch()" ng-model="$root.whatToSearch">
+
+            </p>
+        </div>
+
+        <div class="row">
+            <p>
+                <a class="btn btn-default btn-lg pull-right" ng-click="doSearch()"><i class="fa fa-search" aria-hidden="true"></i>Go!</a>
+            </p>
+        </div>
+
+        <div class="row" ng-show="warning">
+            <p>
+                <div class="alert alert-danger" role="alert">
+                    {{warning}}
+                </div>
+            </p>
+        </div>
+
+    </div>
+</div>

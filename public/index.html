@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="so" ng-controller="soCnt">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="bower_components/restangular/dist/restangular.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angularUtils-pagination/dirPagination.js"></script>
+    <script src="bower_components/angular-keyboard/keyboard.min.js"></script>
+    <script src="javascripts/app.js"></script>
+    <script src="javascripts/controllers/answersCnt.js"></script>
+    <script src="javascripts/controllers/detailsCnt.js"></script>
+    <script src="javascripts/controllers/resultsCnt.js"></script>
+    <script src="javascripts/controllers/searchCnt.js"></script>
+    <script src="javascripts/app.config.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" >
+    <link type="text/css" rel="stylesheet" href="stylesheets/style.css" >
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+    <script type='text/javascript' src='https://api.stackexchange.com/js/2.0/all.js'></script>
+    <script type='text/javascript'>
+        SE.init({
+            clientId: 7417,
+            key: 'B84jQ5Y7bPkrdyb5Q1eQdA((',
+            channelUrl: 'http://localhost:3000/blank',
+            complete: function (data) {
+            console.log(data)
+            }
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+
+    <div class="jumbotron">
+
+            <h1><i class="fa fa-stack-overflow" aria-hidden="true" style="margin-right:10px; color: orange"></i>stack<b>overflow</b></h1>
+
+    </div>
+
+   <ui-view></ui-view>
+</div>
+</body>
+</html>

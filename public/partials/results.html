@@ -1,0 +1,63 @@
+
+
+<div class="col-sm-12" ng-include="'partials/error.html'"></div>
+
+<div ng-include="'partials/Spinner.html'"></div>
+
+<div class="col-sm-12" ng-show="!spinner">
+    <p>
+        <span class="label">Found: {{total}} items</span></p>
+</div>
+
+<div class="col-sm-12" ng-show="!spinner&&$root.results.length>0">
+
+
+    <!--boundary-links=true-->
+    <dir-pagination-controls
+
+            on-page-change=loadPage(newPageNumber)
+            ></dir-pagination-controls>
+    <div class="table-responsive" style="min-width:900px;">
+        <table class="table table-hover" style="width:100%" kb-list>
+            <tr>
+                <th></th>
+                <th style="min-width:200px;" kb-item kb-invoke="myord='owner.display_name'" kb-focus="focusFirstLine">
+                    <a ng-click="myord='owner.display_name'">
+                        <i ng-show="myord=='owner.display_name'" class="fa fa-caret-down" aria-hidden="true"></i>
+                        Author
+                    </a>
+                </th>
+                <th kb-item kb-invoke="myord='title'">
+                    <a ng-click="myord='title'"><i  ng-show="myord=='title'" class="fa fa-caret-down" aria-hidden="true"></i>
+                        Title
+                    </a>
+                </th>
+                <th style="min-width:130px;" kb-item kb-invoke="myord='answer_count'">
+                    <a ng-click="myord='answer_count'"><i  ng-show="myord=='answer_count'" class="fa fa-caret-down" aria-hidden="true"></i>
+                        Answers
+                    </a>
+                </th>
+                <th>Tags</th>
+            </tr>
+            <tr dir-paginate="res in $root.results |orderBy:myord | itemsPerPage: 100" total-items="total"
+
+                style="cursor: pointer">
+                <!--<tr ng-repeat="res in $root.results track by $index " style="cursor: pointer">-->
+                <td >
+                    <span class="badge">{{$index+1}}</span>
+                </td>
+                <td kb-item kb-invoke="goToDetails(res.owner.user_id, null)" style="max-width:250px;"><a ng-click="goToDetails(res.owner.user_id, null)">{{res.owner.display_name}}</a></td>
+                <td kb-item kb-invoke="goToAnswers(res)"  ng-click="goToAnswers(res)">{{res.title}}</td>
+                <td kb-item kb-invoke="goToAnswers(res)" ng-click="goToAnswers(res)">{{res.answer_count}}</td>
+                <td kb-item>
+                    <a class="badge" ng-repeat="tag in res.tags"
+                       ng-click="goToDetails(null, tag)">#{{tag}}</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+
+</div>
+

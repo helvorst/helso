@@ -1,0 +1,58 @@
+<div class="row" style="margin:10px">
+
+    <div class="modal-body">
+        <a class="pull-right" ng-click="cancel()"><i class="fa fa-times fa-2x" aria-hidden="true"></i></a>
+    </div>
+
+    <div ng-include="'partials/Spinner.html'"></div>
+
+    <div ng-hide="spinner">
+        <div class="modal-header">
+            <div class="col-sm-12">
+                <h3>Top 30 questions</h3>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="col-sm-12" ng-show="details.items.length>0">
+                <table class="table table-hover" style="max-width: none;">
+                    <tr>
+                        <th></th>
+                        <th style="min-width:200px;">
+                            <a ng-click="myord='owner.display_name'">
+                                <i ng-show="myord=='owner.display_name'" class="fa fa-caret-down" aria-hidden="true"></i>
+                                Author
+                            </a>
+                        </th>
+                        <th>
+                            <a ng-click="myord='title'"><i  ng-show="myord=='title'" class="fa fa-caret-down" aria-hidden="true"></i>
+                                Title
+                            </a>
+                        </th>
+                        <th style="min-width:130px;">
+                            <a ng-click="myord='answer_count'"><i  ng-show="myord=='answer_count'" class="fa fa-caret-down" aria-hidden="true"></i>
+                                Answers
+                            </a>
+                        </th>
+                        <th>Tags</th>
+                    </tr>
+                    <tr ng-repeat="res in details.items |orderBy:myord track by $index " style="cursor: pointer">
+                        <td>
+                            <span class="badge">{{$index+1}}</span>
+                        </td>
+                        <td>{{res.owner.display_name}}</td>
+                        <td>{{res.title}}</td>
+                        <td>{{res.answer_count}}</td>
+                        <td>
+                            <a class="badge" ng-repeat="tag in res.tags">#{{tag}}</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="col-sm-12" ng-include="'partials/error.html'"></div>
+</div>
+
