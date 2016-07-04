@@ -7,3 +7,7 @@ app.get('/', function (req, res) {
     res.sendFile(__dirname + '/public/index.html');
 })
 module.exports = app;
+
+app.listen('3000', function () {
+    console.log('im on 3000')
+})
